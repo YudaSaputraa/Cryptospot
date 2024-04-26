@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "680580853990",
+    "project_id": "cryptospot-89cc9",
+    "storage_bucket": "cryptospot-89cc9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680580853990:android:bb7852229fcb82ef410b27",
+        "android_client_info": {
+          "package_name": "com.kom.cryptospot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB_qF5yGjOiS2FnZ2uBkDsodpm_zajZdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
