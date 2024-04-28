@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 @Keep
 data class CoinsResponseItem(
     @SerializedName("ath")
-    val ath: Int?,
+    val ath: Double?,
     @SerializedName("ath_change_percentage")
     val athChangePercentage: Double?,
     @SerializedName("ath_date")
@@ -20,11 +20,11 @@ data class CoinsResponseItem(
     @SerializedName("circulating_supply")
     val circulatingSupply: Double?,
     @SerializedName("current_price")
-    val currentPrice: Int?,
+    val currentPrice: Double?,
     @SerializedName("fully_diluted_valuation")
     val fullyDilutedValuation: Long?,
     @SerializedName("high_24h")
-    val high24h: Int?,
+    val high24h: Double?,
     @SerializedName("id")
     val id: String?,
     @SerializedName("image")
@@ -32,7 +32,7 @@ data class CoinsResponseItem(
     @SerializedName("last_updated")
     val lastUpdated: String?,
     @SerializedName("low_24h")
-    val low24h: Int?,
+    val low24h: Double?,
     @SerializedName("market_cap")
     val marketCap: Long?,
     @SerializedName("market_cap_change_24h")
