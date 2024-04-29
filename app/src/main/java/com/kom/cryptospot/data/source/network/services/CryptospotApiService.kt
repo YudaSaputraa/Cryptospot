@@ -19,6 +19,7 @@ interface CryptospotApiService {
     @GET("api/v3/coins/markets")
     suspend fun getCoins(
         @Query("vs_currency") vsCurrency: String? = null,
+        @Query("ids") ids: String? = null,
     ): CoinsResponse
 
     companion object {
@@ -30,9 +31,10 @@ interface CryptospotApiService {
                     .readTimeout(120, TimeUnit.SECONDS)
                     .addInterceptor { chain ->
                         val original: Request = chain.request()
-                        val requestBuilder: Request.Builder = original.newBuilder()
-                            .addHeader("accept", "application/json")
-                            .addHeader("x-cg-demo-api-key", BuildConfig.API_TOKEN)
+                        val requestBuilder: Request.Builder =
+                            original.newBuilder()
+                                .addHeader("accept", "application/json")
+                                .addHeader("x-cg-demo-api-key", BuildConfig.API_TOKEN)
                         val request: Request = requestBuilder.build()
                         chain.proceed(request)
                     }
