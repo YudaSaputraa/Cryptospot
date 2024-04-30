@@ -5,5 +5,5 @@ import com.kom.foodapp.utils.ResultWrapper
 import kotlinx.coroutines.flow.Flow
 
 interface CoinRepository {
-    fun getCoins(vs_currency: String? = "idr"): Flow<ResultWrapper<List<Coin>>>
+    fun getCoins(vsCurrency: String): Flow<ResultWrapper<List<Coin>>>
 }

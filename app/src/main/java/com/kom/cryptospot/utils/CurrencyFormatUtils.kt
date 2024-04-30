@@ -1,4 +1,4 @@
-package com.kom.foodapp.utils
+package com.kom.cryptospot.utils
 
 import java.text.NumberFormat
 import java.util.Locale
@@ -10,11 +10,11 @@ fun Double?.doubleToCurrency(
     return try {
         val localeID = Locale(language, country)
         val numberFormat = NumberFormat.getCurrencyInstance(localeID)
-        numberFormat.maximumFractionDigits = 0
+        numberFormat.maximumFractionDigits = 4
         numberFormat.format(this).toString()
     } catch (e: Exception) {
         null
     }
 }
 
-fun Double?.formatToRupiah() = this.doubleToCurrency("in", "ID")
+fun Double?.formatToUSD() = this.doubleToCurrency("en", "US")

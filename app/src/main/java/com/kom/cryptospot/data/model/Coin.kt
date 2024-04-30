@@ -10,4 +10,5 @@ data class Coin(
     var imgURL: String,
     var name: String,
     var price: Double,
+    var coinSymbols: String,
 ) : Parcelable

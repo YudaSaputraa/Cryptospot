@@ -19,6 +19,8 @@
     <string name="text_coin_name">Bitcoin</string>
     <string name="text_coin_symbol">btc</string>
     <string name="text_coin_price">$7676.87</string>
+    <string name="text_coins_on_empty">Coins empty!</string>
+    <string name="text_on_error">Error!</string>
 
     <!-- Profile-->
     <string name="text_profile_username">Tony Stark</string>

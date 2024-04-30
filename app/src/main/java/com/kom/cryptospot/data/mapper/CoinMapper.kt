@@ -8,6 +8,7 @@ fun CoinsResponseItem?.toCoin() =
         imgURL = this?.image.orEmpty(),
         name = this?.name.orEmpty(),
         price = this?.currentPrice ?: 0.0,
+        coinSymbols = this?.symbol ?: "null",
     )
 
 fun Collection<CoinsResponseItem>?.toCoins() =
