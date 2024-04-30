@@ -1,12 +1,11 @@
 package com.kom.cryptospot.data.source.network.services
 
 import com.kom.cryptospot.BuildConfig
-import com.kom.cryptospot.data.source.network.model.CoinsResponse
+import com.kom.cryptospot.data.source.network.model.coin.CoinsResponse
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import retrofit2.http.GET
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
