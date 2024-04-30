@@ -19,4 +19,11 @@
     <string name="text_coin_name">Bitcoin</string>
     <string name="text_coin_symbol">btc</string>
     <string name="text_coin_price">$7676.87</string>
+
+    <!-- Profile-->
+    <string name="text_profile_username">Tony Stark</string>
+    <string name="text_profile_email">Newuser420@gmail.com</string>
+    <string name="text_edit_profile">Edit Profile</string>
+    <string name="text_logout">Logout</string>
+
 </resources>
