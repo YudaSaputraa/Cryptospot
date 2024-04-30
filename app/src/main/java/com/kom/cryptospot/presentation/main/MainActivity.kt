@@ -3,6 +3,9 @@ package com.kom.cryptospot.presentation.main
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.kom.cryptospot.R
 import com.kom.cryptospot.data.source.network.services.CryptospotApiService
 import com.kom.cryptospot.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +20,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-//        getDataFromApi()
+        setBottomNavbar()
+    }
+
+    private fun setBottomNavbar() {
+        val navController = findNavController(R.id.nav_host)
+        binding.navView.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener { controller, destination, argumen ->
+        }
     }
 
     private fun getDataFromApi() {
