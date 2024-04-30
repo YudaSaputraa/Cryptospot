@@ -9,5 +9,5 @@ data class Coin(
     var id: String = UUID.randomUUID().toString(),
     var imgURL: String,
     var name: String,
-    var price: Double
+    var price: Double,
 ) : Parcelable

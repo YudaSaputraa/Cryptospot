@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Cryptospot</string>
+    <string name="title_email">Email</string>
+    <string name="hint_email">Input your email</string>
+    <string name="title_password">Password</string>
+    <string name="hint_password">Input your password</string>
+    <string name="forget_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="not_registered">Don\'t have an account? Sign up here</string>
 </resources>
