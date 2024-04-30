@@ -17,7 +17,7 @@ Github : https://github.com/YudaSaputraa
 interface CryptospotApiService {
     @GET("api/v3/coins/markets")
     suspend fun getCoins(
-        @Query("vs_currency") vsCurrency: String? = null,
+        @Query("vs_currency") vsCurrency: String,
         @Query("ids") ids: String? = null,
     ): CoinsResponse
 

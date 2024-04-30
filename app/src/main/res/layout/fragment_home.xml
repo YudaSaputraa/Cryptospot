@@ -19,6 +19,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <include
+            android:id="@+id/layout_state"
+            layout="@layout/layout_content_state"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_trending_coins_title" />
+
+        <include
+            android:id="@+id/layout_on_empty_data_state"
+            layout="@layout/layout_on_empty_data"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_trending_coins_title" />
+
 
         <TextView
             android:id="@+id/tv_trending_coins_title"
@@ -35,7 +54,7 @@
             android:id="@+id/rv_coins"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_trending_coins_title"
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
