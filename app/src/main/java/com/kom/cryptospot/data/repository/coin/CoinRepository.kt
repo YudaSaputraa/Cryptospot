@@ -1,4 +1,4 @@
-package com.kom.cryptospot.data.repository
+package com.kom.cryptospot.data.repository.coin
 
 import com.kom.cryptospot.data.model.Coin
 import com.kom.foodapp.utils.ResultWrapper

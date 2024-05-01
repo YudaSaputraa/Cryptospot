@@ -2,7 +2,7 @@ package com.kom.cryptospot.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.kom.cryptospot.data.repository.CoinRepository
+import com.kom.cryptospot.data.repository.coin.CoinRepository
 import kotlinx.coroutines.Dispatchers
 
 /**

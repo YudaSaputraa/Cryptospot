@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
 import com.kom.cryptospot.R
 import com.kom.cryptospot.data.model.Coin
@@ -73,6 +72,7 @@ class CoinAdapter(
                 binding.tvCoinName.text = item.name
                 binding.tvCoinSymbols.text = item.coinSymbols
                 binding.tvCoinPrice.text = item.price.formatToUSD()
+                itemView.setOnClickListener { itemClick(this) }
             }
         }
     }

@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setBottomNavbar()
+        getDataFromApi()
     }
 
     private fun setBottomNavbar() {
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         val apiService = CryptospotApiService.invoke()
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val response = apiService.getCoins("idr", "ethereum")
+                val response = apiService.getCoinById("bitcoin")
                 Log.d("Coins", "Response: $response")
             } catch (e: Exception) {
                 Log.e("Coins Error", "Error: ${e.message}", e)

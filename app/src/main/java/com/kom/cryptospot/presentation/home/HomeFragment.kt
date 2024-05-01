@@ -5,14 +5,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kom.cryptospot.R
 import com.kom.cryptospot.data.model.Coin
+import com.kom.cryptospot.data.source.network.services.CryptospotApiService
 import com.kom.cryptospot.databinding.FragmentHomeBinding
 import com.kom.cryptospot.presentation.home.adapter.CoinAdapter
 import com.kom.foodapp.utils.proceedWhen
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -26,6 +31,8 @@ class HomeFragment : Fragment() {
 
     private val coinAdapter: CoinAdapter by lazy {
         CoinAdapter {
+            Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
+            getDataFromApi(it.name)
         }
     }
 
@@ -108,6 +115,18 @@ class HomeFragment : Fragment() {
                     }
                 },
             )
+        }
+    }
+
+    private fun getDataFromApi(id: String) {
+        val apiService = CryptospotApiService.invoke()
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                val response = apiService.getCoinById("bitcoin")
+                Log.d("Coins", "Response: $response")
+            } catch (e: Exception) {
+                Log.e("Coins Error", "Error: ${e.message}", e)
+            }
         }
     }
 
