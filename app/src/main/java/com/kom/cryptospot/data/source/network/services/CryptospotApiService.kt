@@ -2,11 +2,13 @@ package com.kom.cryptospot.data.source.network.services
 
 import com.kom.cryptospot.BuildConfig
 import com.kom.cryptospot.data.source.network.model.coin.CoinsResponse
+import com.kom.cryptospot.data.source.network.model.coindetail.CoinDetailResponse
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
@@ -20,6 +22,11 @@ interface CryptospotApiService {
         @Query("vs_currency") vsCurrency: String,
         @Query("ids") ids: String? = null,
     ): CoinsResponse
+
+    @GET("api/v3/coins/{id}")
+    suspend fun getCoinById(
+        @Path("id") id: String,
+    ): CoinDetailResponse
 
     companion object {
         @JvmStatic

@@ -1,4 +1,4 @@
-package com.kom.cryptospot.data.repository
+package com.kom.cryptospot.data.repository.coin
 
 import com.kom.cryptospot.data.datasource.coin.CoinDataSource
 import com.kom.cryptospot.data.mapper.toCoins
