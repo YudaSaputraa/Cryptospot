@@ -32,4 +32,22 @@
     <string name="already_have_an_account_login_here">Already have an Account?Login Here</string>
     <string name="your_name">Your name</string>
     <string name="confirm_password">Confirm Password</string>
+
+    <string name="highlight_sign_up">Sign up here</string>
+    <string name="login_failed">Login Gagal %1$s</string>
+    <string name="proceed_login">proceedLogin %1$s</string>
+    <string name="error_email_invalid">Input your email according to the format</string>
+    <string name="error_email_empty">Email cannot be empty</string>
+    <string name="error_password_empty">Password cannot be empty</string>
+    <string name="error_password_less_than_8_char">Password can\'t be less than 8 characters</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="enter_email">Input your email</string>
+    <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
+    <string name="error">Error: %1$s</string>
+    <string name="create_email_input_dialog">createEmailInputDialog: %1$s</string>
+    <string name="dialog_req_update_password">Password change request has been sent to your email</string>
+    <string name="ok">OK</string>
+    <string name="password_is_incorrect">Password is incorrect</string>
+
 </resources>
