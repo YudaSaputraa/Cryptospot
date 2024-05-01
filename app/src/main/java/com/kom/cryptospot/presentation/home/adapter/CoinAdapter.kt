@@ -10,7 +10,7 @@ import coil.load
 import com.kom.cryptospot.R
 import com.kom.cryptospot.data.model.Coin
 import com.kom.cryptospot.databinding.ItemCoinsBinding
-import com.kom.foodapp.utils.formatToUSD
+import com.kom.cryptospot.utils.formatToUSD
 
 /**
 Written by Komang Yuda Saputra
