@@ -1,4 +1,4 @@
-package com.kom.cryptospot.data.model
+package com.kom.cryptospot.data.model.user
 
 import com.google.firebase.auth.FirebaseUser
 

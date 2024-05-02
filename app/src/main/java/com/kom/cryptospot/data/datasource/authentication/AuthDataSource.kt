@@ -1,7 +1,7 @@
 package com.kom.cryptospot.data.datasource.authentication
 
-import com.kom.cryptospot.data.model.User
-import com.kom.cryptospot.data.model.toUser
+import com.kom.cryptospot.data.model.user.User
+import com.kom.cryptospot.data.model.user.toUser
 import com.kom.cryptospot.data.source.firebase.FirebaseService
 import java.lang.Exception
 

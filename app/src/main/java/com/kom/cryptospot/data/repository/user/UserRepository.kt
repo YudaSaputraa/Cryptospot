@@ -1,7 +1,7 @@
-package com.kom.cryptospot.data.repository
+package com.kom.cryptospot.data.repository.user
 
 import com.kom.cryptospot.data.datasource.authentication.AuthDataSource
-import com.kom.cryptospot.data.model.User
+import com.kom.cryptospot.data.model.user.User
 import com.kom.foodapp.utils.ResultWrapper
 import com.kom.foodapp.utils.proceedFlow
 import kotlinx.coroutines.flow.Flow

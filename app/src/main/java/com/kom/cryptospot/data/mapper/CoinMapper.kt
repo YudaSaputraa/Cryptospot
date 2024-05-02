@@ -1,6 +1,6 @@
 package com.kom.cryptospot.data.mapper
 
-import com.kom.cryptospot.data.model.Coin
+import com.kom.cryptospot.data.model.coin.Coin
 import com.kom.cryptospot.data.source.network.model.coin.CoinsResponseItem
 
 fun CoinsResponseItem?.toCoin() =
@@ -9,6 +9,7 @@ fun CoinsResponseItem?.toCoin() =
         name = this?.name.orEmpty(),
         price = this?.currentPrice ?: 0.0,
         coinSymbols = this?.symbol ?: "null",
+        coinId = this?.id.toString(),
     )
 
 fun Collection<CoinsResponseItem>?.toCoins() =

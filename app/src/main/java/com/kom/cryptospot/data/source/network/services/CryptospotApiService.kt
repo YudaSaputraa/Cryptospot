@@ -1,10 +1,12 @@
 package com.kom.cryptospot.data.source.network.services
 
+import android.util.Log
 import com.kom.cryptospot.BuildConfig
 import com.kom.cryptospot.data.source.network.model.coin.CoinsResponse
-import com.kom.cryptospot.data.source.network.model.coindetail.CoinDetailResponse
+import com.kom.cryptospot.data.source.network.model.coindetail.CoinItemByIdResponse
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -23,14 +25,24 @@ interface CryptospotApiService {
         @Query("ids") ids: String? = null,
     ): CoinsResponse
 
-    @GET("api/v3/coins/{id}")
+    @GET("api/v3/coins/{id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false")
     suspend fun getCoinById(
         @Path("id") id: String,
-    ): CoinDetailResponse
+    ): CoinItemByIdResponse
 
     companion object {
         @JvmStatic
         operator fun invoke(): CryptospotApiService {
+            val logging =
+                HttpLoggingInterceptor(
+                    object : HttpLoggingInterceptor.Logger {
+                        override fun log(message: String) {
+                            Log.d("Http-Logging", "log: $message")
+                        }
+                    },
+                )
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
             val okHttpClient =
                 OkHttpClient.Builder()
                     .connectTimeout(120, TimeUnit.SECONDS)
@@ -44,7 +56,9 @@ interface CryptospotApiService {
                         val request: Request = requestBuilder.build()
                         chain.proceed(request)
                     }
+                    .addInterceptor(logging)
                     .build()
+
             val retrofit =
                 Retrofit.Builder()
                     .baseUrl(BuildConfig.BASE_URL)

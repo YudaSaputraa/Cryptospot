@@ -2,7 +2,7 @@ package com.kom.cryptospot.presentation.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.kom.cryptospot.data.repository.UserRepository
+import com.kom.cryptospot.data.repository.user.UserRepository
 import kotlinx.coroutines.Dispatchers
 
 class LoginViewModel(private val repository: UserRepository) : ViewModel() {

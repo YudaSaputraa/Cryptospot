@@ -10,8 +10,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.kom.cryptospot.R
 import com.kom.cryptospot.data.datasource.authentication.AuthDataSource
 import com.kom.cryptospot.data.datasource.authentication.FirebaseAuthDataSource
-import com.kom.cryptospot.data.repository.UserRepository
-import com.kom.cryptospot.data.repository.UserRepositoryImpl
+import com.kom.cryptospot.data.repository.user.UserRepository
+import com.kom.cryptospot.data.repository.user.UserRepositoryImpl
 import com.kom.cryptospot.data.source.firebase.FirebaseService
 import com.kom.cryptospot.data.source.firebase.FirebaseServiceImpl
 import com.kom.cryptospot.data.source.network.services.CryptospotApiService
@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setBottomNavbar()
-        getDataFromApi()
     }
 
     private fun setBottomNavbar() {

@@ -1,19 +1,15 @@
-package com.kom.cryptospot.data.model
+package com.kom.cryptospot.data.model.coin
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.util.UUID
 
-/**
-Written by Komang Yuda Saputra
-Github : https://github.com/YudaSaputraa
- **/
 @Parcelize
-data class CoinDetail(
+data class Coin(
     var id: String = UUID.randomUUID().toString(),
+    var coinId: String,
     var imgURL: String,
     var name: String,
-    var price: Int,
+    var price: Double,
     var coinSymbols: String,
-    var coinDesc: String,
 ) : Parcelable
