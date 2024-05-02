@@ -18,3 +18,5 @@ fun Double?.doubleToCurrency(
 }
 
 fun Double?.formatToUSD() = this.doubleToCurrency("en", "US")
+
+fun Double?.formatToIDR() = this.doubleToCurrency("in", "ID")

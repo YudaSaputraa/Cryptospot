@@ -54,6 +54,7 @@ class HomeFragment : Fragment() {
         bindCoinList()
         loadCoinsData()
         setDisplayName()
+        setupRadioGroup()
     }
 
     private fun setDisplayName() {
@@ -69,8 +70,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun loadCoinsData() {
-        coinItems?.let { bindCoins(it) } ?: getCoinData("usd")
+    private fun loadCoinsData(vsCurrency: String = "usd") {
+        coinItems?.let { bindCoins(it, vsCurrency) } ?: getCoinData(vsCurrency)
     }
 
     private fun bindCoinList() {
@@ -93,7 +94,7 @@ class HomeFragment : Fragment() {
                         rvCoins.isVisible = true
                         result.payload?.let {
                             coinItems = it
-                            bindCoins(it)
+                            bindCoins(it, vsCurrency)
                         }
                     }
                 },
@@ -145,8 +146,29 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun bindCoins(coins: List<Coin>) {
+    private fun bindCoins(
+        coins: List<Coin>,
+        vsCurrency: String,
+    ) {
         this.coinItems = coins
-        coinAdapter.submitData(coins)
+        coinAdapter.submitData(coins, vsCurrency)
+    }
+
+    private fun setupRadioGroup() {
+        binding.layoutRadioVsCurrency.rgVsCurrency.setOnCheckedChangeListener { _, _ ->
+            val selectedCurrency = getSelectedCurrency()
+            coinAdapter.setVsCurrency(selectedCurrency)
+            Log.d("SelectedCurrency", "Selected Currency: $selectedCurrency")
+            getCoinData(selectedCurrency)
+        }
+    }
+
+    private fun getSelectedCurrency(): String {
+        val checkedRadioButtonId = binding.layoutRadioVsCurrency.rgVsCurrency.checkedRadioButtonId
+        return when (checkedRadioButtonId) {
+            R.id.rb_idr -> "idr"
+            R.id.rb_usd -> "usd"
+            else -> "usd"
+        }
     }
 }
