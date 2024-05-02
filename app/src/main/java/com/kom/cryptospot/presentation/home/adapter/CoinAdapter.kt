@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.kom.cryptospot.R
-import com.kom.cryptospot.data.model.Coin
+import com.kom.cryptospot.data.model.coin.Coin
 import com.kom.cryptospot.databinding.ItemCoinsBinding
 import com.kom.cryptospot.utils.formatToUSD
 

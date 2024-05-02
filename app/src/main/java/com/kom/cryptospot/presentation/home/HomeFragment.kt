@@ -1,5 +1,6 @@
 package com.kom.cryptospot.presentation.home
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kom.cryptospot.R
-import com.kom.cryptospot.data.model.Coin
+import com.kom.cryptospot.data.model.coin.Coin
 import com.kom.cryptospot.data.source.network.services.CryptospotApiService
 import com.kom.cryptospot.databinding.FragmentHomeBinding
 import com.kom.cryptospot.presentation.home.adapter.CoinAdapter
@@ -32,7 +33,7 @@ class HomeFragment : Fragment() {
     private val coinAdapter: CoinAdapter by lazy {
         CoinAdapter {
             Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
-            getDataFromApi(it.name)
+            getDataFromApi(it.coinId)
         }
     }
 
@@ -52,6 +53,20 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bindCoinList()
         loadCoinsData()
+        setDisplayName()
+    }
+
+    private fun setDisplayName() {
+        if (!homeViewModel.isUserLoggedIn()) {
+            binding.layoutBanner.tvGreetings.apply {
+                text = getString(R.string.text_user_not_login)
+                setTypeface(null, Typeface.ITALIC)
+            }
+        } else {
+            val currentUser = homeViewModel.getCurrentUser()
+            binding.layoutBanner.tvGreetings.text =
+                getString(R.string.text_greetings_name, currentUser?.fullName)
+        }
     }
 
     private fun loadCoinsData() {
@@ -122,7 +137,7 @@ class HomeFragment : Fragment() {
         val apiService = CryptospotApiService.invoke()
         GlobalScope.launch(Dispatchers.IO) {
             try {
-                val response = apiService.getCoinById("bitcoin")
+                val response = apiService.getCoinById(id)
                 Log.d("Coins", "Response: $response")
             } catch (e: Exception) {
                 Log.e("Coins Error", "Error: ${e.message}", e)

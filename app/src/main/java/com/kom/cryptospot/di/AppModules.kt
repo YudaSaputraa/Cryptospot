@@ -6,12 +6,12 @@ import com.kom.cryptospot.data.datasource.coin.CoinApiDataSource
 import com.kom.cryptospot.data.datasource.coin.CoinDataSource
 import com.kom.cryptospot.data.datasource.coindetail.CoinDetailApiDataSource
 import com.kom.cryptospot.data.datasource.coindetail.CoinDetailDataSource
-import com.kom.cryptospot.data.repository.UserRepository
-import com.kom.cryptospot.data.repository.UserRepositoryImpl
 import com.kom.cryptospot.data.repository.coin.CoinRepository
 import com.kom.cryptospot.data.repository.coin.CoinRepositoryImpl
 import com.kom.cryptospot.data.repository.coindetail.CoinDetailRepository
 import com.kom.cryptospot.data.repository.coindetail.CoinDetailRepositoryImpl
+import com.kom.cryptospot.data.repository.user.UserRepository
+import com.kom.cryptospot.data.repository.user.UserRepositoryImpl
 import com.kom.cryptospot.data.source.firebase.FirebaseService
 import com.kom.cryptospot.data.source.firebase.FirebaseServiceImpl
 import com.kom.cryptospot.data.source.network.services.CryptospotApiService

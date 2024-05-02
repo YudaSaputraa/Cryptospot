@@ -59,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
         password: String,
         fullName: String,
     ) {
-        registerviewModel.doRegister(email, fullName, password).observe(this) {
+        registerviewModel.doRegister(email, password, fullName).observe(this) {
             it.proceedWhen(
                 doOnSuccess = {
                     binding.pbLoading.isVisible = false

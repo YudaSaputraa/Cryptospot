@@ -58,5 +58,8 @@
     <string name="dialog_req_update_password">Password change request has been sent to your email</string>
     <string name="ok">OK</string>
     <string name="password_is_incorrect">Password is incorrect</string>
+    <string name="text_user_not_login">you are not logged in yet!</string>
+    <string name="text_display_name">Welcome</string>
+    <string name="text_greetings_name">Welcome %1$s,</string>
 
 </resources>

@@ -5,8 +5,6 @@ import com.google.gson.annotations.SerializedName
 
 @Keep
 data class CoinItemByIdResponse(
-    @SerializedName("description")
-    val description: Description?,
     @SerializedName("id")
     val id: String?,
     @SerializedName("name")
@@ -19,4 +17,6 @@ data class CoinItemByIdResponse(
     val image: Image?,
     @SerializedName("market_data")
     val marketData: MarketData?,
+    @SerializedName("description")
+    val description: Description?,
 )

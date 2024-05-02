@@ -2,7 +2,7 @@ package com.kom.cryptospot.data.repository.coin
 
 import com.kom.cryptospot.data.datasource.coin.CoinDataSource
 import com.kom.cryptospot.data.mapper.toCoins
-import com.kom.cryptospot.data.model.Coin
+import com.kom.cryptospot.data.model.coin.Coin
 import com.kom.foodapp.utils.ResultWrapper
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
