@@ -18,6 +18,7 @@ import com.kom.cryptospot.data.source.network.services.CryptospotApiService
 import com.kom.cryptospot.presentation.home.HomeViewModel
 import com.kom.cryptospot.presentation.login.LoginViewModel
 import com.kom.cryptospot.presentation.profile.ProfileViewModel
+import com.kom.cryptospot.presentation.register.RegisterViewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 
@@ -55,6 +56,7 @@ object AppModules {
             viewModelOf(::HomeViewModel)
             viewModelOf(::LoginViewModel)
             viewModelOf(::ProfileViewModel)
+            viewModelOf(::RegisterViewModel)
         }
 
     val modules =

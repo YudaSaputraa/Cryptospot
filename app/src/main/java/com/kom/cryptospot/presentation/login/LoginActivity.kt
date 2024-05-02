@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.kom.cryptospot.R
 import com.kom.cryptospot.databinding.ActivityLoginBinding
 import com.kom.cryptospot.presentation.main.MainActivity
+import com.kom.cryptospot.presentation.register.RegisterActivity
 import com.kom.foodapp.utils.highLightWord
 import com.kom.foodapp.utils.proceedWhen
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -102,6 +103,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun navigateToRegister() {
+        startActivity(
+            Intent(this, RegisterActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            },
+        )
     }
 
     private fun doLogin() {
