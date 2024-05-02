@@ -9,6 +9,7 @@ import coil.load
 import com.kom.cryptospot.R
 import com.kom.cryptospot.data.model.coin.Coin
 import com.kom.cryptospot.databinding.ItemCoinsBinding
+import com.kom.cryptospot.utils.formatToIDR
 import com.kom.cryptospot.utils.formatToUSD
 
 /**
@@ -18,6 +19,13 @@ Github : https://github.com/YudaSaputraa
 class CoinAdapter(
     private val itemClick: (Coin) -> Unit,
 ) : RecyclerView.Adapter<CoinAdapter.ItemCoinViewHolder>() {
+    private var vsCurrency: String = "usd"
+
+    fun setVsCurrency(currency: String) {
+        vsCurrency = currency
+        notifyDataSetChanged()
+    }
+
     private val asyncDataDiffer =
         AsyncListDiffer<Coin>(
             this,
@@ -38,7 +46,10 @@ class CoinAdapter(
             },
         )
 
-    fun submitData(data: List<Coin>) {
+    fun submitData(
+        data: List<Coin>,
+        vsCurrency: String,
+    ) {
         asyncDataDiffer.submitList(data)
     }
 
@@ -47,7 +58,7 @@ class CoinAdapter(
         viewType: Int,
     ): ItemCoinViewHolder {
         val binding = ItemCoinsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ItemCoinViewHolder(binding, itemClick)
+        return ItemCoinViewHolder(binding, vsCurrency, itemClick)
     }
 
     override fun getItemCount(): Int = asyncDataDiffer.currentList.size
@@ -56,14 +67,18 @@ class CoinAdapter(
         holder: ItemCoinViewHolder,
         position: Int,
     ) {
-        holder.bindView(asyncDataDiffer.currentList[position])
+        holder.bindView(asyncDataDiffer.currentList[position], vsCurrency)
     }
 
     class ItemCoinViewHolder(
         private val binding: ItemCoinsBinding,
+        private val vsCurrency: String,
         val itemClick: (Coin) -> Unit,
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bindView(item: Coin) {
+        fun bindView(
+            item: Coin,
+            vsCurrency: String,
+        ) {
             with(item) {
                 binding.ivCoinImage.load(item.imgURL) {
                     crossfade(true)
@@ -71,7 +86,13 @@ class CoinAdapter(
                 }
                 binding.tvCoinName.text = item.name
                 binding.tvCoinSymbols.text = item.coinSymbols
-                binding.tvCoinPrice.text = item.price.formatToUSD()
+                val formattedPrice =
+                    if (this@ItemCoinViewHolder.vsCurrency == "idr") {
+                        item.price.formatToIDR()
+                    } else {
+                        item.price.formatToUSD()
+                    }
+                binding.tvCoinPrice.text = formattedPrice
                 itemView.setOnClickListener { itemClick(this) }
             }
         }

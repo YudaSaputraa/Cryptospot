@@ -61,5 +61,7 @@
     <string name="text_user_not_login">you are not logged in yet!</string>
     <string name="text_display_name">Welcome</string>
     <string name="text_greetings_name">Welcome %1$s,</string>
+    <string name="text_idr">IDR</string>
+    <string name="text_usd">USD</string>
 
 </resources>

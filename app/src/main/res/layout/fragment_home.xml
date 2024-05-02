@@ -50,6 +50,14 @@
             app:layout_constraintTop_toBottomOf="@id/layout_banner"
             app:layout_constraintStart_toStartOf="parent"/>
 
+        <include
+            android:id="@+id/layout_radio_vs_currency"
+            layout="@layout/layout_radio_vc_currency"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/layout_banner"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_coins"
             android:layout_width="match_parent"

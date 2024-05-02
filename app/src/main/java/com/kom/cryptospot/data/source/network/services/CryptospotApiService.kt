@@ -34,13 +34,7 @@ interface CryptospotApiService {
         @JvmStatic
         operator fun invoke(): CryptospotApiService {
             val logging =
-                HttpLoggingInterceptor(
-                    object : HttpLoggingInterceptor.Logger {
-                        override fun log(message: String) {
-                            Log.d("Http-Logging", "log: $message")
-                        }
-                    },
-                )
+                HttpLoggingInterceptor { message -> Log.d("Http-Logging", "log: $message") }
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
             val okHttpClient =
