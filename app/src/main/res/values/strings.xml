@@ -38,10 +38,10 @@
 
     <!--Register-->
     <string name="register">Register</string>
-    <string name="already_have_an_account_login_here">Already have an Account?Login Here</string>
+    <string name="already_have_an_account_login_here">Already have an Account? Login Here</string>
     <string name="your_name">Your name</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="text_highlight_login_here">Login Here</string>
+    <string name="text_highlight_login_here"> Login Here</string>
     <string name="text_register_success">Anda Telah Terdaftar\nSilahkan Login</string>
     <string name="text_error_name_cannot_empty">Name cannot be empty</string>
     <string name="text_error_email_empty">Email should not be empty</string>
