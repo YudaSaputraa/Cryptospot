@@ -73,5 +73,7 @@
     <string name="text_idr">IDR</string>
     <string name="text_usd">USD</string>
     <string name="text_open_in_coingecko">Open in CoinGecko</string>
+    <string name="text_coin_id">bitcoin</string>
+    <string name="text_favorite_title">Your Favorite</string>
 
 </resources>
