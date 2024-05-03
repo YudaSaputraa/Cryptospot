@@ -10,7 +10,7 @@ Github : https://github.com/YudaSaputraa
 class CoinDetailApiDataSource(
     private val service: CryptospotApiService,
 ) : CoinDetailDataSource {
-    override suspend fun getCoinById(id: String): CoinItemByIdResponse {
+    override suspend fun getCoinById(id: String?): CoinItemByIdResponse {
         return service.getCoinById(id)
     }
 }

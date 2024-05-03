@@ -13,7 +13,6 @@
             android:layout_height="wrap_content"
             tools:text="@tools:sample/lorem/random"
             android:ellipsize="end"
-            android:maxLines="15"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />

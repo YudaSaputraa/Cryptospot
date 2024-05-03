@@ -15,13 +15,22 @@
         android:src="@drawable/ic_back_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <include
+        android:id="@+id/layout_state"
+        layout="@layout/layout_content_state"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/ic_detail_back_button"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/sv_coin_detail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ic_detail_back_button">
+        app:layout_constraintTop_toBottomOf="@id/ic_detail_back_button"
+        app:layout_constraintBottom_toTopOf="@id/btn_go_to_coin_web">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -40,12 +49,20 @@
                 layout="@layout/layout_desc_coin_detail"
                 app:layout_constraintTop_toBottomOf="@id/layout_header_coin_detail"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="8dp">
             </include>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+    <Button
+        android:id="@+id/btn_go_to_coin_web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_open_in_coingecko"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/md_theme_onPrimaryFixedVariant"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
