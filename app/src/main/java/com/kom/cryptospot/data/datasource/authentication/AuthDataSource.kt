@@ -29,6 +29,8 @@ interface AuthDataSource {
 
     suspend fun reqChangePasswordByEmailWithoutLogin(email: String): Boolean
 
+    fun reqChangePasswordByEmail(): Boolean
+
     fun isLoggedIn(): Boolean
 
     fun doLogout(): Boolean
@@ -68,6 +70,10 @@ class FirebaseAuthDataSource(private val service: FirebaseService) : AuthDataSou
 
     override suspend fun reqChangePasswordByEmailWithoutLogin(email: String): Boolean {
         return service.reqChangePasswordByEmailWithoutLogin(email)
+    }
+
+    override fun reqChangePasswordByEmail(): Boolean {
+        return service.reqChangePasswordByEmail()
     }
 
     override fun isLoggedIn(): Boolean {
