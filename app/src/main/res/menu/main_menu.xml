@@ -5,10 +5,6 @@
         android:icon="@drawable/ic_home"
         android:title="@string/text_home" />
     <item
-        android:id="@+id/menu_tab_favorite"
-        android:icon="@drawable/ic_favorite"
-        android:title="@string/text_favorite" />
-    <item
         android:id="@+id/menu_tab_profile"
         android:icon="@drawable/ic_person"
         android:title="@string/text_profile" />
