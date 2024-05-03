@@ -6,7 +6,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import coil.load
-import com.google.firebase.auth.AuthCredential
 import com.kom.cryptospot.R
 import com.kom.cryptospot.databinding.ActivityEditProfileBinding
 import com.kom.foodapp.utils.proceedWhen
