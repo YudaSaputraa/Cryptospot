@@ -72,12 +72,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/bg_button_solid"
-        android:orientation="vertical"
         android:paddingVertical="16dp"
-        android:visibility="visible"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/layout_form">
 
         <TextView
+            android:id="@+id/btn_save_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -90,14 +90,16 @@
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/pb_loading"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:visibility="invisible"
         android:indeterminate="true"
+        app:indicatorColor="@color/md_theme_primary"
+        app:layout_constraintTop_toTopOf="@id/btn_save_edit"
         app:layout_constraintBottom_toBottomOf="@id/btn_save_edit"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btn_save_edit" />
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
     <LinearLayout
         android:id="@+id/btn_req_change_pass"

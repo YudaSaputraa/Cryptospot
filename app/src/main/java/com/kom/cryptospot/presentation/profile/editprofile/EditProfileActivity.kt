@@ -1,13 +1,15 @@
 package com.kom.cryptospot.presentation.profile.editprofile
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import coil.load
 import com.kom.cryptospot.R
 import com.kom.cryptospot.databinding.ActivityEditProfileBinding
+import com.kom.cryptospot.presentation.main.MainActivity
 import com.kom.foodapp.utils.proceedWhen
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -21,6 +23,7 @@ class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        binding.layoutForm.etEmail.isEnabled = false
         showUserData()
         setClickListeners()
     }
@@ -36,7 +39,6 @@ class EditProfileActivity : AppCompatActivity() {
 
         binding.btnSaveEdit.setOnClickListener {
             doEditProfile()
-            doEditProfileEmail()
         }
     }
 
@@ -57,11 +59,6 @@ class EditProfileActivity : AppCompatActivity() {
             val fullName = binding.layoutForm.etUsername.text.toString().trim()
             proceedEditProfile(fullName)
         }
-    }
-
-    private fun doEditProfileEmail() {
-        val email = binding.layoutForm.etEmail.text.toString().trim()
-        proceedEditProfileEmail(email)
     }
 
     private fun requestChangePassword() {
@@ -95,17 +92,18 @@ class EditProfileActivity : AppCompatActivity() {
         editProfileViewModel.updateProfileName(fullName = fullName).observe(this) {
             it.proceedWhen(
                 doOnSuccess = {
-                    binding.pbLoading.isVisible = false
-                    binding.btnSaveEdit.isVisible = true
+                    binding.pbLoading.visibility = View.INVISIBLE
+                    binding.btnSaveEdit.visibility = View.VISIBLE
                     Toast.makeText(
                         this,
                         getString(R.string.text_change_profile_data_success),
                         Toast.LENGTH_SHORT,
                     ).show()
+                    navigateToMain()
                 },
                 doOnError = {
-                    binding.pbLoading.isVisible = false
-                    binding.btnSaveEdit.isVisible = true
+                    binding.pbLoading.visibility = View.INVISIBLE
+                    binding.btnSaveEdit.visibility = View.VISIBLE
                     Toast.makeText(
                         this,
                         getString(R.string.text_change_profile_data_failed),
@@ -113,39 +111,18 @@ class EditProfileActivity : AppCompatActivity() {
                     ).show()
                 },
                 doOnLoading = {
-                    binding.pbLoading.isVisible = true
-                    binding.btnSaveEdit.isVisible = false
+                    binding.pbLoading.visibility = View.VISIBLE
+                    binding.btnSaveEdit.visibility = View.INVISIBLE
                 },
             )
         }
     }
 
-    private fun proceedEditProfileEmail(email: String) {
-        editProfileViewModel.updateProfileEmail(email = email).observe(this) {
-            it.proceedWhen(
-                doOnSuccess = {
-                    binding.pbLoading.isVisible = false
-                    binding.btnSaveEdit.isVisible = true
-                    Toast.makeText(
-                        this,
-                        getString(R.string.text_change_profile_data_success),
-                        Toast.LENGTH_SHORT,
-                    ).show()
-                },
-                doOnError = {
-                    binding.pbLoading.isVisible = false
-                    binding.btnSaveEdit.isVisible = true
-                    Toast.makeText(
-                        this,
-                        getString(R.string.text_change_profile_data_failed),
-                        Toast.LENGTH_SHORT,
-                    ).show()
-                },
-                doOnLoading = {
-                    binding.pbLoading.isVisible = true
-                    binding.btnSaveEdit.isVisible = false
-                },
-            )
-        }
+    private fun navigateToMain() {
+        startActivity(
+            Intent(this, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            }
+        )
     }
 }
