@@ -30,6 +30,8 @@ interface UserRepository {
 
     fun reqChangePasswordByEmailWithoutLogin(email: String): Flow<ResultWrapper<Boolean>>
 
+    fun reqChangePasswordByEmail(): Boolean
+
     fun isLoggedIn(): Boolean
 
     fun doLogout(): Boolean
@@ -71,6 +73,10 @@ class UserRepositoryImpl(private val dataSource: AuthDataSource) : UserRepositor
 
     override fun reqChangePasswordByEmailWithoutLogin(email: String): Flow<ResultWrapper<Boolean>> {
         return proceedFlow { dataSource.reqChangePasswordByEmailWithoutLogin(email) }
+    }
+
+    override fun reqChangePasswordByEmail(): Boolean {
+        return dataSource.reqChangePasswordByEmail()
     }
 
     override fun isLoggedIn(): Boolean {

@@ -27,6 +27,15 @@
     <string name="text_profile_email">Newuser420@gmail.com</string>
     <string name="text_edit_profile">Edit Profile</string>
     <string name="text_logout">Logout</string>
+
+    <!-- Update Profile -->
+    <string name="text_hint_username">Username</string>
+    <string name="text_hint_email">Email</string>
+    <string name="text_save_edit">Save Edit</string>
+    <string name="text_req_change_pass">Request Change Password by Email</string>
+    <string name="text_change_profile_data_success">Change Profile Data Success</string>
+    <string name="text_change_profile_data_failed">Change Profile Data Failed</string>
+
     <!--Register-->
     <string name="register">Register</string>
     <string name="already_have_an_account_login_here">Already have an Account?Login Here</string>
