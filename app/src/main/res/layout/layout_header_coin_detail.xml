@@ -47,15 +47,15 @@
                     android:textSize="20sp"
                     tools:text="$123.456" />
             </LinearLayout>
-            <ImageView
-                android:id="@+id/img_detail_star_logo"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/img_star"
-                android:layout_marginStart="12dp"
-                app:layout_constraintBottom_toBottomOf="@id/img_detail_crypto_logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="12dp"
-                app:layout_constraintTop_toTopOf="@id/img_detail_crypto_logo" />
+<!--            <ImageView-->
+<!--                android:id="@+id/img_detail_star_logo"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:src="@drawable/img_star"-->
+<!--                android:layout_marginStart="12dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/img_detail_crypto_logo"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                android:layout_marginEnd="12dp"-->
+<!--                app:layout_constraintTop_toTopOf="@id/img_detail_crypto_logo" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.kom.cryptospot.databinding.FragmentFavoriteBinding
 
-class FavoriteFragment : Fragment() {
+class FavouriteFragment : Fragment() {
     private lateinit var binding: FragmentFavoriteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

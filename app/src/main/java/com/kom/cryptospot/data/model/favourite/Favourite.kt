@@ -1,4 +1,4 @@
-package com.kom.cryptospot.data.model
+package com.kom.cryptospot.data.model.favourite
 
 data class Favourite(
     var id: Int? = null,
