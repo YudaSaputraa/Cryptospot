@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.main.MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.profile.editprofile.EditProfileActivity"
             android:exported="false" />
         <activity
@@ -29,7 +32,7 @@
             android:name=".presentation.detail.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.main.MainActivity"
+            android:name=".presentation.splashscreen.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

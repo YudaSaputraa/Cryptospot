@@ -19,7 +19,7 @@ class RegisterActivity : AppCompatActivity() {
         ActivityRegisterBinding.inflate(layoutInflater)
     }
 
-    private val registerviewModel: RegisterViewModel by viewModel()
+    private val registerViewModel: RegisterViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
         password: String,
         fullName: String,
     ) {
-        registerviewModel.doRegister(email, password, fullName).observe(this) {
+        registerViewModel.doRegister(email, password, fullName).observe(this) {
             it.proceedWhen(
                 doOnSuccess = {
                     binding.pbLoading.isVisible = false
