@@ -15,11 +15,13 @@ import com.kom.cryptospot.data.repository.user.UserRepositoryImpl
 import com.kom.cryptospot.data.source.firebase.FirebaseService
 import com.kom.cryptospot.data.source.firebase.FirebaseServiceImpl
 import com.kom.cryptospot.data.source.network.services.CryptospotApiService
+import com.kom.cryptospot.presentation.detail.DetailViewModel
 import com.kom.cryptospot.presentation.home.HomeViewModel
 import com.kom.cryptospot.presentation.login.LoginViewModel
 import com.kom.cryptospot.presentation.profile.ProfileViewModel
 import com.kom.cryptospot.presentation.profile.editprofile.EditProfileViewModel
 import com.kom.cryptospot.presentation.register.RegisterViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 
@@ -59,6 +61,13 @@ object AppModules {
             viewModelOf(::ProfileViewModel)
             viewModelOf(::EditProfileViewModel)
             viewModelOf(::RegisterViewModel)
+            viewModel { params ->
+                // assisted injection
+                DetailViewModel(
+                    intent = params.get(),
+                    repository = get(),
+                )
+            }
         }
 
     val modules =

@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +13,7 @@ import com.kom.cryptospot.R
 import com.kom.cryptospot.data.model.coin.Coin
 import com.kom.cryptospot.data.source.network.services.CryptospotApiService
 import com.kom.cryptospot.databinding.FragmentHomeBinding
+import com.kom.cryptospot.presentation.detail.DetailActivity
 import com.kom.cryptospot.presentation.home.adapter.CoinAdapter
 import com.kom.foodapp.utils.proceedWhen
 import kotlinx.coroutines.Dispatchers
@@ -32,9 +32,15 @@ class HomeFragment : Fragment() {
 
     private val coinAdapter: CoinAdapter by lazy {
         CoinAdapter {
-            Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
-            getDataFromApi(it.coinId)
+            it.let {
+                    item ->
+                navigateToDetail(item.coinId)
+            }
         }
+    }
+
+    private fun navigateToDetail(id: String?) {
+        DetailActivity.startActivity(requireContext(), id)
     }
 
     override fun onCreateView(

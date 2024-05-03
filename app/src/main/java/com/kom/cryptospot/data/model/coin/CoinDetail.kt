@@ -15,6 +15,6 @@ data class CoinDetail(
     val name: String,
     val symbol: String,
     val imgURL: String,
-    val price: Int,
+    val price: Double,
     val coinDesc: String,
 ) : Parcelable

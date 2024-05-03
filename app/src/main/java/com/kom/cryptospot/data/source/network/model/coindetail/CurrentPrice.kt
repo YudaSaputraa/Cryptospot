@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 @Keep
 data class CurrentPrice(
     @SerializedName("idr")
-    val idr: Int?,
+    val idr: Double?,
     @SerializedName("usd")
-    val usd: Int?,
+    val usd: Double?,
 )

@@ -27,7 +27,7 @@ interface CryptospotApiService {
 
     @GET("api/v3/coins/{id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false")
     suspend fun getCoinById(
-        @Path("id") id: String,
+        @Path("id") id: String?,
     ): CoinItemByIdResponse
 
     companion object {

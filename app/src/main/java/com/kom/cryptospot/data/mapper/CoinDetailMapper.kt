@@ -13,7 +13,7 @@ fun CoinItemByIdResponse?.toCoin(): CoinDetail {
         name = this?.name.orEmpty(),
         symbol = this?.symbol.orEmpty(),
         imgURL = this?.image?.large.orEmpty(),
-        price = this?.marketData?.currentPrice?.usd ?: 0,
+        price = this?.marketData?.currentPrice?.usd ?: 0.0,
         coinDesc = this?.description?.en.orEmpty(),
     )
 }

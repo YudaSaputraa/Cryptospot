@@ -13,18 +13,18 @@ Written by Komang Yuda Saputra
 Github : https://github.com/YudaSaputraa
  **/
 interface CoinDetailRepository {
-    fun getCoinById(id: String): Flow<ResultWrapper<List<CoinDetail>>>
+    fun getCoinById(id: String?): Flow<ResultWrapper<CoinDetail>>
 }
 
 class CoinDetailRepositoryImpl(
     private val dataSource: CoinDetailDataSource,
 ) : CoinDetailRepository {
-    override fun getCoinById(id: String): Flow<ResultWrapper<List<CoinDetail>>> {
+    override fun getCoinById(id: String?): Flow<ResultWrapper<CoinDetail>> {
         return flow {
             emit(ResultWrapper.Loading())
             delay(1000)
             val coinItemResponse = dataSource.getCoinById(id)
-            val coinsDetailData = listOf(coinItemResponse.toCoin())
+            val coinsDetailData = coinItemResponse.toCoin()
             emit(ResultWrapper.Success(coinsDetailData))
         }
     }
