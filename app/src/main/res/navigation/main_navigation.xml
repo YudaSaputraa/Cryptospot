@@ -10,11 +10,11 @@
         android:name="com.kom.cryptospot.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/menu_tab_favorite"
-        android:name="com.kom.cryptospot.presentation.favorite.FavoriteFragment"
-        android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+<!--    <fragment-->
+<!--        android:id="@+id/menu_tab_favorite"-->
+<!--        android:name="com.kom.cryptospot.presentation.favorite.FavouriteFragment"-->
+<!--        android:label="fragment_favorite"-->
+<!--        tools:layout="@layout/fragment_favorite" />-->
     <fragment
         android:id="@+id/menu_tab_profile"
         android:name="com.kom.cryptospot.presentation.profile.ProfileFragment"
